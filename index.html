@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library Study Group Selection</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        h1 {
+            color: #333;
+        }
+        .container {
+            max-width: 500px;
+            margin: 0 auto;
+        }
+        .library-option {
+            margin-bottom: 15px;
+        }
+        button {
+            padding: 10px 15px;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Select a Library</h1>
+        <form id="libraryForm">
+            <div class="library-option">
+                <input type="radio" id="library1" name="library" value="Main Library">
+                <label for="library1">Main Library</label>
+            </div>
+            <div class="library-option">
+                <input type="radio" id="library2" name="library" value="Science Library">
+                <label for="library2">Science Library</label>
+            </div>
+            <div class="library-option">
+                <input type="radio" id="library3" name="library" value="Law Library">
+                <label for="library3">Law Library</label>
+            </div>
+            <button type="button" onclick="submitForm()">Submit</button>
+        </form>
+        <div id="result" style="margin-top: 20px;"></div>
+    </div>
+
+    <script>
+        // Simulated simple storage
+        const votes = {
+            "Main Library": 0,
+            "Science Library": 0,
+            "Law Library": 0
+        };
+
+        function submitForm() {
+            const selectedLibrary = document.querySelector('input[name="library"]:checked').value;
+            if (selectedLibrary) {
+                votes[selectedLibrary]++;
+                document.getElementById('result').innerHTML = `You selected: ${selectedLibrary}. Current votes: ${votes[selectedLibrary]}`;
+            } else {
+                alert('Please select a library');
+            }
+        }
+    </script>
+</body>
+</html>
